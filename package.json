@@ -1,21 +1,20 @@
 {
-  "name": "pact-example-jest",
+  "name": "pact-jest",
   "version": "1.0.0",
-  "description": "Jest Pact example",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest __tests__/ --runInBand",
-    "pact:publish": "pact-broker publish pact/pacts --consumer-app-version=\"$(npx @pact-foundation/absolute-version)\" --auto-detect-version-properties --broker-base-url=https://test.pact.dius.com.au"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "MIT",
-  "jest": {
-    "testEnvironment": "node"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermehta/pact-jest.git"
   },
-  "devDependencies": {
-    "@pact-foundation/absolute-version": "0.0.4",
-    "@pact-foundation/pact": "^9.16.0",
-    "axios": "^0.21.1",
-    "jest": "^26.6.3",
-    "jest-pact": "^0.9.1"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spencermehta/pact-jest/issues"
+  },
+  "homepage": "https://github.com/spencermehta/pact-jest#readme"
 }
