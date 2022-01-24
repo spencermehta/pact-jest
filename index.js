@@ -1,8 +1,15 @@
 const axios = require('axios');
 
 exports.handler = async (event) => {
+  const url = event.url
+
   try {
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/1')
+    const response = await axios.request({
+      method: "GET",
+      baseURL: url,
+      url: "/stations",
+      headers: { Accept: "application/json" },
+    })
     console.log(response)
     return {
       statusCode: 200,
