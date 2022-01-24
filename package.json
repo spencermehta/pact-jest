@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/spencermehta/pact-jest/issues"
   },
-  "homepage": "https://github.com/spencermehta/pact-jest#readme"
+  "homepage": "https://github.com/spencermehta/pact-jest#readme",
+  "dependencies": {
+    "axios": "^0.25.0"
+  }
 }

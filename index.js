@@ -1,7 +1,13 @@
+const axios = require('axios');
+
 exports.handler = async (event) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify("Hello from Lambda & GitHub!")
+  try {
+    const response = axios.get('https://pokeapi.co/api/v2/pokemon/1')
+    return response
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error)
+    }
   }
-  return response
 }
