@@ -1,9 +1,9 @@
 "use strict";
 
-const { pactWith } = require("jest-pact");
-const { Matchers } = require("@pact-foundation/pact");
+const { pactWith } = require("jest-pact")
+const { Matchers } = require("@pact-foundation/pact")
 
-const { getStations } = require("../index");
+const { handler } = require("../index")
 
 pactWith({ consumer: "flight_search", provider: "acl" }, (provider) => {
   describe("Stations API stations exist", () => {
@@ -43,12 +43,11 @@ pactWith({ consumer: "flight_search", provider: "acl" }, (provider) => {
     });
 
     // add expectations
-    it("returns a successful body", () => {
-      return getStations({
+    it("returns a successful body", async () => {
+      const resp = await handler({
         url: provider.mockService.baseUrl,
-      }).then((stations) => {
-        expect(stations).toEqual([station]);
-      });
+      })
+      expect(JSON.parse(resp.body)).toEqual([station])
     });
   });
   
@@ -82,12 +81,11 @@ pactWith({ consumer: "flight_search", provider: "acl" }, (provider) => {
     });
 
     // add expectations
-    it("returns an empty array", () => {
-      return getStations({
+    it("returns an empty array", async () => {
+      const resp = await handler({
         url: provider.mockService.baseUrl,
-      }).then((stations) => {
-        expect(stations).toEqual([]);
-      });
+      })
+      expect(JSON.parse(resp.body)).toEqual([])
     });
   });
 });

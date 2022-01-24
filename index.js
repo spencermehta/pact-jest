@@ -1,16 +1,25 @@
-"use strict"
+const axios = require('axios');
 
-const axios = require("axios")
+exports.handler = async (event) => {
+  const url = event.url
 
-exports.getStations = endpoint => {
-  const url = endpoint.url
-
-  return axios
-    .request({
+  try {
+    const response = await axios.request({
       method: "GET",
       baseURL: url,
       url: "/stations",
       headers: { Accept: "application/json" },
     })
-    .then(response => response.data)
+    console.log(response)
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response.data)
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 400,
+      body: JSON.stringify(error)
+    }
+  }
 }
