@@ -2,7 +2,7 @@ import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult
 } from 'aws-lambda'
-import axios from 'axios'
+const axios = require('axios')
 
 export const handler = async (
   event: APIGatewayProxyEvent
