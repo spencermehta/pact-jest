@@ -7,7 +7,7 @@ const axios = require('axios')
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  const url = event.queryStringParameters.a
+  const url = event.queryStringParameters?.a
 
   try {
     const response = await axios.request({
