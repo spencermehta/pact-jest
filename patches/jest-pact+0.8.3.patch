@@ -1,0 +1,11 @@
+diff --git a/node_modules/jest-pact/dist/types.d.ts b/node_modules/jest-pact/dist/types.d.ts
+index efcd40c..2939dc3 100644
+--- a/node_modules/jest-pact/dist/types.d.ts
++++ b/node_modules/jest-pact/dist/types.d.ts
+@@ -1,5 +1,4 @@
+-import { MessageConsumerPact, Pact } from '@pact-foundation/pact';
+-import { MessageConsumerOptions, PactOptions } from '@pact-foundation/pact/dsl/options';
++import { MessageConsumerPact, Pact, MessageConsumerOptions, PactOptions } from '@pact-foundation/pact';
+ import { WrapperWithOnlyAndSkip } from './internal/types';
+ interface ExtraOptions {
+     timeout?: number;
