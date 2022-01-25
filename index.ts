@@ -1,22 +1,27 @@
-const axios = require('axios');
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult
+} from 'aws-lambda'
+const axios = require('axios')
 
-exports.handler = async (event) => {
-  const url = event.url
+export const handler = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
+  const url = event.queryStringParameters?.a
 
   try {
     const response = await axios.request({
       method: "GET",
       baseURL: url,
       url: "/stations",
-      headers: { Accept: "application/json" },
+      headers: { Accept: "application/json" }
     })
-    console.log(response)
+
     return {
       statusCode: 200,
       body: JSON.stringify(response.data)
     }
   } catch (error) {
-    console.log(error);
     return {
       statusCode: 400,
       body: JSON.stringify(error)
