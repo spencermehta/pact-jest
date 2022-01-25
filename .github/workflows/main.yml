@@ -40,7 +40,7 @@ jobs:
         env: 
           CI: true
       - name: zip
-        run: cd built && zip -qq -r ../bundle.zip ./
+        run: cd build && zip -qq -r ../bundle.zip ./
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
